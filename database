@@ -1,0 +1,75 @@
+CREATE TABLE student1
+(studentID INTEGER NOT NULL,
+studentName VARCHAR(15) NOT NULL,
+majorArea VARCHAR(10) NOT NULL,
+PRIMARY KEY
+(studentID));
+ 
+INSERT INTO student1
+VALUES (145500675, ‘Powell’, ‘ENG’);
+INSERT INTO student1
+VALUES (234390137, ‘Anderson’, ‘IT’);
+INSERT INTO student1
+VALUES (543291073, ‘Anderson’, ‘IT’);
+
+ 
+
+CREATE TABLE course1
+(courseID CHAR(6) NOT NULL,
+courseTitle VARCHAR(15) NOT NULL,
+location VARCHAR(4) NOT NULL,
+PRIMARY KEY
+(courseID));
+ 
+
+INSERT INTO course1
+VALUES (‘ENG420’, ‘Instruments’, ‘B101’);
+INSERT INTO course1
+VALUES (‘ENG530’, ‘PLC Design’, ‘B117’);
+INSERT INTO course1
+VALUES (‘SIT772’, ‘Database Sys’, ‘T201’);
+INSERT INTO course1
+VALUES (‘SIT771’, ‘OOD’, ‘T212’);
+INSERT INTO course1
+VALUES (‘SIT773’, ‘Soft analysis’, ‘T233’);
+ 
+ 
+
+CREATE TABLE teacher1
+(courseTitle VARCHAR(15) NOT NULL,
+instructor VARCHAR(15) NOT NULL,
+PRIMARY KEY
+(courseTitle));
+ 
+INSERT INTO teacher1
+VALUES (‘Soft analysis’, ‘Margarete’);
+INSERT INTO teacher1
+VALUES (‘Instruments’, ‘David’);
+INSERT INTO teacher1
+VALUES (‘PLC Design’, ‘Peter’);
+INSERT INTO teacher1
+VALUES (‘Database Sys’, ‘Jack’);
+INSERT INTO teacher1
+VALUES (‘OOD’, ‘Fred’);
+ 
+ 
+
+
+CREATE TABLE status1
+(studentID INTEGER NOT NULL,
+courseID CHAR(6) NOT NULL,
+ststus CHAR(15) NOT NULL,
+FOREIGN KEY (studentID) REFERENCES student1,
+FOREIGN KEY (courseID) REFERENCES course1);
+ 
+
+INSERT INTO ststus1
+VALUES (145500675, ‘ENG420’, ‘completed’);
+INSERT INTO ststus1
+VALUES (145500675, ‘ENG530’, ‘completed’);
+INSERT INTO ststus1
+VALUES (234390137, ‘SIT772’, ‘completed’);
+INSERT INTO ststus1
+VALUES (234390137, ‘SIT771’, ‘completed’);
+INSERT INTO ststus1
+VALUES (543291073, ‘SIT773’, ‘nocompleted’);
